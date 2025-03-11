@@ -13,6 +13,8 @@ in {
     bridges.br0.interfaces = ["eno1"];
 
     interfaces = {
+      # Disable DHCP for the onboard ethernet
+      eno1.useDHCP = false;
       # L3 reachable loopback addresses for host and anycast
       lo.ipv4.addresses = [
         (addr loopback 32)
