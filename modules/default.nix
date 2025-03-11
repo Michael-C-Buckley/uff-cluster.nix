@@ -4,11 +4,11 @@
   ];
 in {
   imports = [
+    ./network
     ./corosync.nix
     ./filesystems.nix
     ./frr.nix
     ./hardware.nix
-    ./network.nix
     ./options.nix
     ./podman.nix
   ] ++ customModules;
