@@ -1,0 +1,13 @@
+---
+- name: Rebuild NixOS Hosts
+  hosts: nixos_hosts
+  become: true
+  tasks:
+    - name: Get Updates
+      shell: |
+        cd /etc/nixos/
+        sudo git fetch && git pull
+
+    - name: Perform the Rebuild
+      shell: |
+        sudo nixos-rebuild switch
