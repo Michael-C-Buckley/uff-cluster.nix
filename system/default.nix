@@ -3,7 +3,6 @@ _: {
     ./boot.nix
     ./nix.nix
     ./security.nix
-    ./time.nix
     ./users.nix
   ];
 
