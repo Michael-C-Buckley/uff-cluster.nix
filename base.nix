@@ -2,6 +2,7 @@
 {inputs, ...}: {
   imports = with inputs; [
     ./modules
+    ./network
     ./pkgs
     ./programs
     ./system

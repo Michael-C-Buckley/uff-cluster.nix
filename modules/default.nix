@@ -4,7 +4,6 @@
   ];
 in {
   imports = [
-    ./network
     ./corosync.nix
     ./filesystems.nix
     ./frr.nix
