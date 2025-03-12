@@ -6,7 +6,6 @@ in {
   imports = [
     ./corosync.nix
     ./filesystems.nix
-    ./frr.nix
     ./hardware.nix
     ./options.nix
     ./podman.nix
