@@ -4,6 +4,9 @@
         ipv6 forwarding
         router ospf
          router-id ${config.custom.uff.loopbackIPv4}
+        int wlp2s0
+         ip ospf area 0
+         ip ospf cost 1200
         int lo
          ip ospf area 0
          ip ospf passive
