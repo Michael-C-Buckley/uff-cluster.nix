@@ -37,8 +37,13 @@ zfs create -o mountpoint=legacy rpool/root/gluster
 
 # Mount the drives and prepare for the install
 mount -t zfs rpool/root/nixos /mnt
-mkdir -p /mnt/{nix,home,boot,data/gluster}
+mkdir -p /mnt/{nix,home,boot,data/gluster,etc/nixos}
 mount -t zfs rpool/root/nix /mnt/nix
 mount -t zfs rpool/root/home /mnt/home
 mount -t zfs rpool/root/gluster /mnt/data/gluster
 mount /dev/nvme0n1p1 /mnt/boot
+
+# Clone this Repo
+git clone https://github.com/Michael-C-Buckley/uff-cluster.nix.git
+
+## ADD DEPLOY KEY FOR SECRETS
