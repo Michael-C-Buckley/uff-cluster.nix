@@ -1,4 +1,4 @@
-{config, inputs, lib, ...}: let
+{config, ...}: let
   brIP = config.custom.uff.bridgeIPv4;
   enusb1 = config.custom.uff.enusb1;
   loopback = config.custom.uff.loopbackIPv4;
@@ -9,10 +9,17 @@
   };
 in {
   networking = {
+    networkmanager.unmanaged = ["wlp2s0"];
+    wireless = {
+      enable = true;
+      # Network info here
+    };
     # Add the first interface into a bridge and a default route
     bridges.br0.interfaces = ["eno1"];
 
     interfaces = {
+      # Wifi gets DHCP
+      wlp2s0.useDHCP = true;
       # Disable DHCP for the onboard ethernet
       eno1.useDHCP = false;
       # L3 reachable loopback addresses for host and anycast
