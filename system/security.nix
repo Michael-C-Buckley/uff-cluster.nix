@@ -1,7 +1,11 @@
 {config, pkgs, inputs, ...}: {
 
+  imports =  [
+    inputs.ragenix.nixosModules.default
+  ];
+
   environment.systemPackages = with pkgs;  [
-    inputs.agenix.packages.x86_64-linux.agenix
+    ragenix
     sops
   ];
 
