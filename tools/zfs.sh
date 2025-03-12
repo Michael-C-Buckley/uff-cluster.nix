@@ -23,8 +23,10 @@ zpool create -o ashift=12 \
   -O dnodesize=auto \
   -O normalization=formD \
   -O mountpoint=none \
-  -O multihost=on \
   rpool /dev/nvme0n1p2
+
+# Allow it to be read by any host
+zpool set multihost=on rpool
 
 # This create the zvols used in this cluster
 zfs create -o mountpoint=none rpool/root
