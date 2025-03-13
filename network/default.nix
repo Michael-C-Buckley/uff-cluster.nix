@@ -2,8 +2,9 @@ _: {
   imports = [
     ./frr.nix
     ./interfaces.nix
-    ./services.nix
     ./settings.nix
     ./systemd.nix
   ];
+
+  services.ntpd-rs.enable = true;
 }
