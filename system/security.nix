@@ -1,13 +1,21 @@
-{config, pkgs, inputs, ...}: {
-
+{config, pkgs, inputs, ...}: let
+  shh = config.age.secrets;
+in {
   imports =  [
+    inputs.nix-secrets.nixosModules.uff
     inputs.ragenix.nixosModules.default
   ];
 
-  environment.systemPackages = with pkgs;  [
-    ragenix
-    sops
-  ];
+  environment = {
+    systemPackages = with pkgs;  [
+      ragenix
+      sops
+    ];
+    etc = {
+      "corosync/authkey".source = shh.corosync-authkey.path;
+      "NetworkManager/system-connections/wifi.nmconnection".source = shh.wifi.path;
+    };
+  };
 
   security = {
     sudo = {
