@@ -5,9 +5,6 @@
         router ospf
          router-id ${config.custom.uff.loopbackIPv4}
          default-information originate metric 600 metric-type 1
-        int wlp2s0
-         ip ospf area 0
-         ip ospf cost 1200
         int lo
          ip ospf area 0
          ip ospf passive
