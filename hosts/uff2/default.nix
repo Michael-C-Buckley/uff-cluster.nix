@@ -3,6 +3,7 @@
 in {
   imports = [
     ./hardware.nix
+    ./wireguard.nix
   ];
 
   custom.uff = {
