@@ -1,7 +1,6 @@
 # Default System Packages
 {pkgs, ...}: {
   imports = [
-    # ./kubernetes.nix # Not currently in use
     ./network.nix
   ];
 
